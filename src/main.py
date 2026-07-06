@@ -53,10 +53,10 @@ def main():
     joblib.dump(modelo, MODELS_DIR / "modelo_cascada_octavos.pkl")
     print(f"      Modelos guardados en {MODELS_DIR}")
 
-    print("\n[4/5] Prediciendo los partidos de Octavos pendientes (espejo + Monte Carlo)...")
-    pred_pendientes = pr.predecir_partidos_pendientes(df_pendientes, modelo)
-    pred_decididos = pr.partidos_ya_decididos(df_decididos)
-    resultados = pd.concat([pred_decididos, pred_pendientes], ignore_index=True)
+    print("\n[4/5] Prediciendo TODOS los partidos de Octavos con el modelo (espejo + Monte Carlo), "
+          "incluidos los ya jugados de Marruecos y Francia...")
+    df_todos_octavos = pd.concat([df_pendientes, df_decididos], ignore_index=True)
+    resultados = pr.predecir_partidos_pendientes(df_todos_octavos, modelo)
 
     for _, r in resultados.sort_values("match_id").iterrows():
         estado = "(real)" if r["ya_jugado"] else f"({r['confianza']*100:.0f}% conf.)"
