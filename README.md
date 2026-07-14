@@ -12,12 +12,6 @@ penaltis para resolver cada cruce eliminatorio.
 
 ## Resultado
 
-El resultado final es una imagen: **`output/clasificados_octavos.png`**,
-con los 8 equipos que clasifican a Cuartos de Final (2 ya decididos en la
-cancha + 6 predichos por el modelo, cada uno con su % de confianza).
-
-![Clasificados a Cuartos de Final](output/clasificados_octavos.png)
-
 ### Tabla de predicciones (Octavos de Final)
 
 | Fecha | Local | Visitante | Prob. Local | Prob. Empate | Prob. Visitante | Ganador predicho | Confianza | Marcador probable |
